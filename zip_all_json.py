@@ -5,19 +5,24 @@ import urllib
 import urllib2
 import json
 import pickle
+
 values = {}
 values['p1'] = "a"
 values['p2'] = "b"
-data = urllib.urlencode(values)
-url = "http://localhost:8000"
-geturl = url + "?" + data
-request = urllib2.Request(geturl)
-response = urllib2.urlopen(request)
-resStr=response.read()
+print values
+print json.loads(json.dumps(values))
+# data = urllib.urlencode(values)
+# url = "http://localhost:8000"
+# geturl = url + "?" + data
+# request = urllib2.Request(geturl)
+# response = urllib2.urlopen(request)
+# resStr=response.read()
+
+resStr=open('sample.json').read()
 
 print resStr
 myList=json.loads(resStr)
-# print myList
+print myList
 
 # myList = [s.encode('utf-8') for s in myList]
 

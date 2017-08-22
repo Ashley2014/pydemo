@@ -10,11 +10,15 @@ def zipdir(path, ziph,id):
                 with open(root+file, 'r') as myfile:
                     data = myfile.read().replace('REQUEST_MERCHANT_VALUE', str(id))
                     print(data)
-
-            ziph.write(os.path.join(root, file))
+                    ziph.writestr(os.path.join(root, file), data)
+            else:
+                ziph.write(os.path.join(root, file))
 
 
 if __name__ == '__main__':
+
+
+
     for i in range(1, 3):
         zipf = zipfile.ZipFile('test'+str(i)+'.zip', 'w', zipfile.ZIP_DEFLATED)
         zipdir('dist/', zipf,i)
